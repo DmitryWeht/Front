@@ -1,0 +1,43 @@
+1   
+
+   1. Регистрация нового ученика (Create)
+   2. Создание учетной записи преподавателя (Create)
+   3. Создание записи на курс (Create)
+   4. Обновление информации о записи на курс (Update)
+   5. Создание расписания занятий (Create)
+   6. Просмотр расписания занятий (Read)
+   7. Обновление расписания занятий (Update)
+   8. Создание платежа (Create)
+   9. Просмотр информации о платеже (Read)
+   10. Обновление информации о платеже (Update)
+
+2. SELECT  ProductName,
+        Price
+FROM Products
+WHERE
+	Price >= 20
+	AND
+	Price <= 200
+
+3.
+
+   SELECT  ProductName
+FROM Products
+WHERE
+SupplierID IN (2, 4)
+ORDER BY Price DESC
+
+
+4. 
+
+SELECT  ProductName,
+Price * .875 AS Price_low
+FROM Products
+
+5.
+
+UPDATE Suppliers
+SET Phone='none'
+WHERE
+SupplierID IN (3, 5)
+
