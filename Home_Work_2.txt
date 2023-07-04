@@ -1,0 +1,32 @@
+1.
+ 
+SELECT phone
+FROM suppliers
+WHERE country NOT IN ('Germany', 'France');
+
+2.
+
+INSERT INTO products (productname, price, categoryid)
+VALUES ('Товар 1', 10.99, 'Категория 1'),
+       ('Товар 2', 19.99, 'Категория 2');
+
+3.
+
+DELETE FROM suppliers
+WHERE country IN ('USA', 'Germany');
+
+
+4.
+
+SELECT *
+FROM products
+WHERE categoryid IN (3, 6) AND price <= 20
+ORDER BY price DESC;
+
+
+5.
+
+SELECT orderid
+FROM orders
+ORDER BY orderid DESC
+LIMIT 3;
