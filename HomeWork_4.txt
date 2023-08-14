@@ -1,0 +1,64 @@
+1.
+
+SELECT COUNT(*)
+FROM suppliers
+WHERE country NOT IN ('UK', 'China');
+
+
+2.
+
+SELECT 
+    p.categoryid,
+    c.categoryname,
+    AVG(p.price) AS average_price,
+    MAX(p.price) AS max_price,
+    MIN(p.price) AS min_price,
+    COUNT(p.productid) AS product_count
+FROM 
+    products p
+JOIN
+    categories c ON p.categoryid = c.categoryid
+WHERE
+    p.categoryid IN (3, 5)
+GROUP BY
+    p.categoryid, c.categoryname;
+
+
+3.
+
+
+SELECT 
+    SUM(products.price * orderdetails.quantity) AS total_sales
+FROM 
+    orderdetails
+JOIN
+    products ON orderdetails.productid = products.productid;
+
+
+4.
+
+
+SELECT 
+    COUNT(DISTINCT suppliers.country) AS number_of_countries
+FROM 
+    suppliers
+JOIN
+    products ON suppliers.supplierid = products.supplierid
+WHERE
+    products.categoryid = 1;
+
+5.
+
+
+SELECT 
+    SUM(products.price * orderdetails.quantity) AS total_amount
+FROM 
+    orders
+JOIN
+    orderdetails ON orders.orderid = orderdetails.orderid
+JOIN
+    customers ON orders.customerid = customers.customerid
+JOIN
+    products ON orderdetails.productid = products.productid
+WHERE
+    customers.country = 'USA';
